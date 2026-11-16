@@ -8,7 +8,12 @@ function start() {
     left.classList.add("open");
     right.classList.add("open");
     setTimeout(()=>{
-    year.classList.add('show')
+    year.classList.add('show');
     }, 1000);
-   
+     setTimeout(()=>{
+    truck.classList.add('move');
+    }, 2000);
+   setTimeout(()=>{
+    missile.classList.add('launch');
+   }, 5000);
 }

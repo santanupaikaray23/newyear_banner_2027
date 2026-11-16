@@ -76,7 +76,7 @@ body {
     font-weight: bold;
     font-family: "Patua One", serif;
     position: absolute;
-    top: 200px;
+    top: 30px;
     left: calc(50vw - 220px);
     opacity: 0;
 }
@@ -100,7 +100,22 @@ body {
 
 #truck {
     position: absolute;
-    bottom: 30px;
+    bottom: 0px;
+    transform: translateX(-200);
+    will-change: transform;
+}
+
+#truck.move {
+    animation: move-truck-to-right 2s forwards ease-in;
+}
+
+@keyframes move-truck-to-right {
+    0% {
+        transform: translateX(-200);
+    }
+    100% {
+        transform: translateX(calc(50vw + 160px));
+    }
 }
 
 .missile-container {
@@ -109,6 +124,19 @@ body {
 
 #missile {
     position:absolute;
-    left: 0;
-    bottom: 0;;
+    left: 40px;
+    bottom: 61px;
+}
+
+#missile.launch {
+    animation: move-missile-to-top 3s forwards ease-in;
+}
+
+@keyframes move-missile-to-top {
+    0% {
+        bottom: 10px;
+    }
+    100% {
+       bottom: 400px;
+    }
 }
