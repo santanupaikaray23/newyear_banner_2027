@@ -759,7 +759,7 @@ body {
     }
 
     .missile-container {
-        left: 20%;
+        left: 15%;
         bottom: 55%;
         width: 30px;
         height: 75px;
@@ -775,13 +775,13 @@ body {
         }
 
         to {
-            bottom: 180px;
+            bottom: 440px;
         }
     }
 
     #bomb {
-        top: 110px;
-        left: 65%;
+        top: 70px;
+        left: 62%;
     }
 
     #flight {
@@ -861,7 +861,7 @@ body {
     }
 
     #bomb {
-        top: 100px;
+        top: 70px;
     }
 
     #flight {
@@ -897,7 +897,7 @@ body {
         }
 
         to {
-            bottom: 140px;
+            bottom: 370px;
         }
     }
 }
