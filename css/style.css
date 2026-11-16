@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
     margin: 0;
@@ -282,5 +282,666 @@ font-size: 50px;
     }
 
 }
+ */
 
+ @import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ==============================
+   GLOBAL SETTINGS
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background-color: #090909;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+/* ==============================
+   OPENING SCREEN
+============================== */
+
+#left,
+#right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #2297da;
+    z-index: 10;
+}
+
+#left {
+    left: 0;
+}
+
+#right {
+    right: 0;
+}
+
+#left.open,
+#right.open {
+    animation: screen-open 1s forwards ease-in;
+}
+
+@keyframes screen-open {
+    from {
+        width: 50%;
+    }
+
+    to {
+        width: 0;
+    }
+}
+
+/* ==============================
+   START BUTTON
+============================== */
+
+#startBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 150px;
+    height: 50px;
+
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Raleway", serif;
+
+    background-color: #000;
+    color: #fff;
+
+    border: none;
+    border-radius: 5px;
+    outline: none;
+
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* ==============================
+   YEAR 2026
+============================== */
+
+#year {
+    position: absolute;
+    top: clamp(20px, 4vh, 40px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    white-space: nowrap;
+
+    color: #fff;
+    font-size: clamp(50px, 11vw, 160px);
+    font-weight: bold;
+    font-family: "Patua One", serif;
+
+    opacity: 0;
+    z-index: 3;
+}
+
+#year span {
+    margin: 0;
+    padding: 0;
+}
+
+#year.color #span1 {
+    color: #baff29;
+}
+
+#year.color #span2 {
+    color: #f85e00;
+}
+
+#year.color #span3 {
+    color: #4cc9f0;
+}
+
+#newSpan.color {
+    color: #f72585;
+}
+
+#year.show {
+    animation: show-year 1s forwards ease-in;
+}
+
+@keyframes show-year {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==============================
+   NEW NUMBER 7
+============================== */
+
+#newSpan {
+    position: absolute;
+    top: clamp(20px, 4vh, 40px);
+
+    /* Position next to the existing year */
+    left: calc(50% + clamp(75px, 12vw, 130px));
+
+    color: #fff;
+    font-size: 0;
+    font-weight: bold;
+    font-family: "Patua One", serif;
+
+    white-space: nowrap;
+    z-index: 4;
+}
+
+#newSpan.drop {
+    animation: drop-span 2s forwards ease-in;
+}
+
+@keyframes drop-span {
+    from {
+        font-size: 0;
+    }
+
+    to {
+        font-size: clamp(50px, 11vw, 160px);
+    }
+}
+
+/* ==============================
+   TRUCK
+============================== */
+
+#truck {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: clamp(140px, 25vw, 200px);
+
+    transform: translateX(-100%);
+    will-change: transform;
+
+    z-index: 5;
+}
+
+#truck > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Truck movement */
+
+#truck.move {
+    animation: move-truck-to-right 2s forwards ease-in;
+}
+
+@keyframes move-truck-to-right {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(calc(50vw + 0px));
+    }
+}
+
+#truck.restart {
+    animation: move-truck-to-end 2s forwards ease-in;
+}
+
+@keyframes move-truck-to-end {
+    from {
+        transform: translateX(calc(50vw + 160px));
+    }
+
+    to {
+        transform: translateX(calc(100vw + 200px));
+    }
+}
+
+/* ==============================
+   MISSILE
+============================== */
+
+.missile-container {
+    position: absolute;
+
+    left: 20%;
+    bottom: 55%;
+
+    width: 40px;
+    height: 100px;
+}
+
+#missile {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: auto;
+}
+
+#missile.launch {
+    animation: move-missile-to-top 3s forwards ease-in;
+}
+
+@keyframes move-missile-to-top {
+    from {
+        bottom: 0;
+    }
+
+    to {
+        bottom: 300px;
+    }
+}
+
+/* ==============================
+   BOMB EXPLOSION
+============================== */
+
+#bomb {
+    position: absolute;
+    top: 75px;
+    left: 56%;
+
+    width: 0;
+    height: auto;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 4;
+}
+
+#bomb.explode {
+    animation: bomb-explode 1s forwards ease-in;
+}
+
+@keyframes bomb-explode {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: min(250px, 55vw);
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+/* ==============================
+   AIRPLANE / FLIGHT
+============================== */
+
+#flight {
+    position: absolute;
+    top: 10px;
+    right: -100px;
+
+    width: clamp(55px, 10vw, 90px);
+    height: auto;
+
+    transform: translateX(100px);
+    will-change: transform;
+
+    z-index: 4;
+}
+
+#flight.move {
+    animation: move-flight-to-left 5s forwards ease-in;
+}
+
+@keyframes move-flight-to-left {
+    0% {
+        transform: translateX(100px) rotate(-15deg);
+    }
+
+    100% {
+        transform: translateX(calc(-100vw - 100px));
+    }
+}
+
+/* ==============================
+   HAPPY NEW YEAR MESSAGE
+============================== */
+
+#message {
+    position: absolute;
+    top: clamp(140px, 23vh, 190px);
+    left: 0;
+
+    width: 100%;
+    padding: 0 15px;
+
+    font-size: clamp(24px, 4vw, 50px);
+    font-weight: bold;
+    font-family: "Patua One", serif;
+
+    text-align: center;
+    color: #9fffcb;
+
+    opacity: 0;
+    z-index: 6;
+}
+
+#message.greet {
+    opacity: 1;
+    animation: greet-message 2s infinite ease-in;
+}
+
+@keyframes greet-message {
+    0% {
+        font-size: clamp(24px, 4vw, 50px);
+    }
+
+    50% {
+        font-size: clamp(35px, 7vw, 100px);
+    }
+
+    100% {
+        font-size: clamp(24px, 4vw, 50px);
+    }
+}
+
+/* =====================================
+   TABLET RESPONSIVE
+===================================== */
+
+@media screen and (max-width: 1024px) {
+
+    #year {
+        font-size: clamp(65px, 12vw, 120px);
+    }
+
+    #newSpan {
+        left: calc(50% + clamp(65px, 12vw, 100px));
+    }
+
+    #newSpan.drop {
+        animation-name: drop-span-tablet;
+    }
+
+    @keyframes drop-span-tablet {
+        from {
+            font-size: 0;
+        }
+
+        to {
+            font-size: clamp(65px, 12vw, 120px);
+        }
+    }
+
+    #truck {
+        width: clamp(150px, 28vw, 200px);
+    }
+
+    #message {
+        padding: 0 20px;
+    }
+
+    #missile {
+        width: 35px;
+    }
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media screen and (max-width: 768px) {
+
+    #startBtn {
+        width: 125px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    #year {
+        top: 40px;
+        font-size: clamp(48px, 12vw, 80px);
+    }
+
+    #newSpan {
+        top: 40px;
+        left: calc(50% + 55px);
+    }
+
+    #newSpan.drop {
+        animation-name: drop-span-mobile;
+    }
+
+    @keyframes drop-span-mobile {
+        from {
+            top: 40px;
+            font-size: 0;
+        }
+
+        to {
+            top: 40px;
+            font-size: clamp(48px, 12vw, 80px);
+        }
+    }
+
+    #truck {
+        width: clamp(140px, 38vw, 200px);
+    }
+
+    .missile-container {
+        left: 20%;
+        bottom: 55%;
+        width: 30px;
+        height: 75px;
+    }
+
+    #missile.launch {
+        animation-name: move-missile-mobile;
+    }
+
+    @keyframes move-missile-mobile {
+        from {
+            bottom: 0;
+        }
+
+        to {
+            bottom: 180px;
+        }
+    }
+
+    #bomb {
+        top: 110px;
+        left: 65%;
+    }
+
+    #flight {
+        width: 42px;
+        top: 15px;
+    }
+
+    #message {
+        top: 160px;
+        padding: 0 12px;
+    }
+
+    #message.greet {
+        animation: greet-message-mobile 2s infinite ease-in;
+    }
+
+    @keyframes greet-message-mobile {
+        0% {
+            font-size: 23px;
+        }
+
+        50% {
+            font-size: 42px;
+        }
+
+        100% {
+            font-size: 23px;
+        }
+    }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media screen and (max-width: 480px) {
+
+    #startBtn {
+        width: 110px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    #year {
+        top: 45px;
+        font-size: 45px;
+    }
+
+    #newSpan {
+        top: 45px;
+        left: calc(50% + 43px);
+    }
+
+    #newSpan.drop {
+        animation-name: drop-span-small;
+    }
+
+    @keyframes drop-span-small {
+        from {
+            top: 45px;
+            font-size: 0;
+        }
+
+        to {
+            top: 45px;
+            font-size: 45px;
+        }
+    }
+
+    #truck {
+        width: 160px;
+    }
+
+    .missile-container {
+        width: 25px;
+        height: 60px;
+    }
+
+    #bomb {
+        top: 100px;
+    }
+
+    #flight {
+        width: 35px;
+    }
+
+    #message {
+        top: 145px;
+        padding: 0 8px;
+    }
+
+    #message.greet {
+        animation: greet-message-small 2s infinite ease-in;
+    }
+
+    @keyframes greet-message-small {
+        0% {
+            font-size: 20px;
+        }
+
+        50% {
+            font-size: 30px;
+        }
+
+        100% {
+            font-size: 20px;
+        }
+    }
+
+    @keyframes move-missile-mobile {
+        from {
+            bottom: 0;
+        }
+
+        to {
+            bottom: 140px;
+        }
+    }
+}
+
+/* =====================================
+   EXTRA SMALL MOBILE
+===================================== */
+
+@media screen and (max-width: 360px) {
+
+    #year {
+        font-size: 38px;
+    }
+
+    #newSpan {
+        left: calc(50% + 37px);
+    }
+
+    #newSpan.drop {
+        animation-name: drop-span-extra-small;
+    }
+
+    @keyframes drop-span-extra-small {
+        from {
+            top: 45px;
+            font-size: 0;
+        }
+
+        to {
+            top: 45px;
+            font-size: 38px;
+        }
+    }
+
+    #truck {
+        width: 140px;
+    }
+
+    #message {
+        top: 135px;
+    }
+
+    #flight {
+        width: 30px;
+    }
+}
 
