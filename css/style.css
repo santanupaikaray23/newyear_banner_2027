@@ -82,7 +82,7 @@ body {
 }
 
 #year span {
-    margin: px;
+    margin: 0;
 }
 
 #year.color #span1 {
@@ -117,7 +117,7 @@ body {
 #truck {
     position: absolute;
     bottom: 0px;
-    transform: translateX(-200);
+    transform: translateX(-200px);
     will-change: transform;
     
     
@@ -282,3 +282,5 @@ font-size: 50px;
     }
 
 }
+
+
