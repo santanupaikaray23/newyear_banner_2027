@@ -16,4 +16,23 @@ function start() {
    setTimeout(()=>{
     missile.classList.add('launch');
    }, 5000);
+    setTimeout(()=>{
+    bomb.classList.add('explode');
+   }, 9000);
+    setTimeout(()=>{
+    bomb.classList.add('explode');
+    missile.style.display = "none";
+    lastSpan.style.display = "none";
+    truck.classList.remove("move");
+    truck.classList.add("restart");
+    flight.classList.add("move");
+   }, 10500);
+   setTimeout(()=>{
+    newSpan.classList.add('drop')
+   }, 13500)
+    setTimeout(()=>{
+    year.classList.add('color');
+    newSpan.classList.add('color')
+    message.classList.add('greet');
+   }, 15500)
 }

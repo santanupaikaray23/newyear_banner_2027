@@ -72,7 +72,7 @@ body {
 
 #year {
     color: #fff;
-    font-size: 180px;
+    font-size: 160px;
     font-weight: bold;
     font-family: "Patua One", serif;
     position: absolute;
@@ -83,6 +83,22 @@ body {
 
 #year span {
     margin: px;
+}
+
+#year.color #span1 {
+    color: #baff29;
+}
+
+#year.color #span2 {
+    color: #f85e00;
+}
+
+#year.color #span3 {
+    color: #4cc9f0;
+}
+
+#newspan.color {
+    color: #f72585;
 }
 
 #year.show {
@@ -103,10 +119,13 @@ body {
     bottom: 0px;
     transform: translateX(-200);
     will-change: transform;
+    
+    
 }
 
 #truck.move {
     animation: move-truck-to-right 2s forwards ease-in;
+    
 }
 
 @keyframes move-truck-to-right {
@@ -117,6 +136,20 @@ body {
         transform: translateX(calc(50vw + 160px));
     }
 }
+
+#truck.restart {
+    animation: move-truck-to-end 2s forwards ease-in;
+}
+
+@keyframes move-truck-to-end {
+    0% {
+       transform: translateX(calc(50vw + 160px));
+    }
+    100% {
+        transform: translateX(calc(100vw + 200px));
+    }
+}
+
 
 .missile-container {
     position: relative;
@@ -137,6 +170,115 @@ body {
         bottom: 10px;
     }
     100% {
-       bottom: 400px;
+       bottom: 300px;
     }
+}
+
+#bomb {
+    position: absolute;
+    top: 135px;
+    left: calc(62vw + 100px);
+    width: 0px;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#bomb.explode {
+    animation: bomb-explode 1s forwards ease-in;
+}
+
+@keyframes bomb-explode {
+    0% {
+        width: 0px;
+    }
+    50% {
+       bottom: 600px;
+       width: 250px;
+    }
+     100% {
+       bottom: 600px;
+       width: 0px;
+    }
+}
+
+#flight {
+    position: absolute;
+    top: 10px;
+    right: -200px;
+    transform: translateX(200px);
+    will-change: transform;
+    width: 60px;
+    height: 60px;
+}
+
+#flight.move {
+    animation: move-flight-to-left 5s forwards ease-in;
+}
+
+@keyframes move-flight-to-left {
+    0% {
+        transform: translateX(200px) rotate(-15deg);;
+    }
+    100% {
+         transform: translateX(calc(-100vw - 200px));
+      
+    }
+}
+
+#newSpan {
+    color: #fff;
+    font-size: 0px;
+    font-weight: bold;
+    font-family: "Patua One", serif;
+    position: absolute;
+     top: 30px;
+    right: calc(50vw - 210px);
+}
+
+#newSpan.drop {
+    animation: drop-span 2s forwards ease-in;
+}
+
+@keyframes drop-span {
+    0% {
+        top:30px;
+        font-size: 0px;
+        
+    }
+    100% {
+         top: 30px;
+         font-size: 160px;
+        
+      
+    }
+}
+
+#message {
+    position: absolute;
+    top: 190px;
+    left: 0;
+    width: 100vw;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "Patua One" , serif;
+    text-align: center;
+    color: #9fffcb;
+    opacity: 0;
+}
+
+#message.greet {
+    opacity: 1;
+    animation: greet-message 2s infinite ease-in;
+}
+
+@keyframes greet-message {
+    0% {
+font-size: 50px;
+    }
+    50% {
+font-size: 100px;
+    }
+    100% {
+font-size: 50px;
+    }
+
 }
